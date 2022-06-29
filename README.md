@@ -1,2 +1,32 @@
 # laravel-send-email-methods
 Laravel repository for testing deferent methods for sending emails
+
+### Docker devbox
+The project is build on top of docker devbox so, all you need is to have docker desktop installed on you pc and then you can navigate to root to run: 
+
+docker-compose up -d | For starting the devbox
+
+docker-compose down | To clean up all containers
+
+### Project access
+
+- Project is running on http://localhost:80
+- Db client is running on http://localhost:54320
+- Fake mailer running on http://localhost:8025
+
+Db creating for project
+- go to http://localhost:54320
+- set provider Mysql
+- set username root
+- set password secret
+- set server database
+- after login create database with name db_email_example and db-email-example_test for testing
+
+### Env setup
+
+- All you need it to copy the .env.example to .env and run the todo manager container to execute
+	- php artisan key:generate
+	- php artisan migrate:fresh --seed
+	- (for running tests) php artisan test
+
+- Default demo user password is: password
