@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\UserController;
+use App\Http\Middleware\UserIsAdmin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
+
+Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
+
+Route::post('/users/{id}/approve', [UserController::class, 'approve'])
+->middleware(['auth', UserIsAdmin::class])->name('users.approve');
 
 require __DIR__.'/auth.php';

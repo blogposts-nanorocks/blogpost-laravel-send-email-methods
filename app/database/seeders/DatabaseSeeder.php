@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Project;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -37,5 +38,11 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('secret'),
             'is_admin' => true
         ]);
+
+        \App\Models\User::factory(2)->create()->each(function ($user) {
+            Project::factory(3)->create([
+                'user_id' => $user->id
+            ]);
+        });
     }
 }
