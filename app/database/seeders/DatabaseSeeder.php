@@ -39,9 +39,11 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true
         ]);
 
-        \App\Models\User::factory(2)->create()->each(function ($user) {
+        \App\Models\User::factory(6)->create([
+            'email_verified_at' => null
+        ])->each(function ($user) {
             Project::factory(3)->create([
-                'user_id' => $user->id
+                'user_id' => $user->id,
             ]);
         });
     }
