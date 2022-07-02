@@ -18,13 +18,13 @@ commands executed
 
 User can register and they need admin approve to verify their profile by email.
 
-After user registration admin will recive an email with (first method - send like notification).
+After user registration admins will recive an email with (first method - send like notification).
 
 After admin approve the user, that user will recive an email to verif the profile (third method - event/lisener)
 
-User can create profile and admin will be notifyied by email (second method - observers)
+User can create project and will recive an email as notification (second method - observers)
 
-Whenever user register, we will send an email to 3 admins. (forth method - laravel queues)
+Whenever user delete project, we will send an email to 3 admins. (forth method - laravel queues)
 
 ### Docker devbox
 The project is build on top of docker devbox so, all you need is to have docker desktop installed on you pc and then you can navigate to root to run: 
