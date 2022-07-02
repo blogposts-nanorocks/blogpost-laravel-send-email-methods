@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 
 Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
-
+// app/routes/web.php
 Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
 
 Route::post('/users/{id}/approve', [UserController::class, 'approve'])
